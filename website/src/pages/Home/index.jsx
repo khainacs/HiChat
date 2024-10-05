@@ -1,10 +1,10 @@
-import Chat from "./components/Chat";
+import Section from "./components/Section";
 
 export default function Home() {
     return (
         <main>
             <div className="flex flex-col items-center justify-center w-full">
-                <Chat/>
+                <Section/>
             </div>
         </main>
     );
