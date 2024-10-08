@@ -1,32 +1,34 @@
-import { Sequelize, DataTypes } from 'sequelize';
-import sequelize from '../database.js'
+import sequelize from '../database.js';
+import { DataTypes } from 'sequelize';
 
-const User = sequelize.define('User',{
-    id:{
-        type: DataTypes.STRING,
+const User = sequelize.define('User', {
+    id: {
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4, // Tạo UUID tự động
         primaryKey: true,
         allowNull: false,
     },
-    name:{
+    name: {
         type: DataTypes.STRING,
         allowNull: false,
     },
     email: {
-        type:DataTypes.STRING,
+        type: DataTypes.STRING,
         allowNull: false,
+        unique: true, // Đảm bảo email là duy nhất
     },
-    password:{
+    password: {
         type: DataTypes.STRING,
         allowNull: false,
     },
-    image_url:{
+    image_url: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true, // Có thể là null nếu không có hình ảnh
     },
-    
-
-},{
+}, {
     timestamps: true,
-})
+    createdAt: 'createdAt', // Tùy chỉnh tên trường
+    updatedAt: 'updatedAt', // Tùy chỉnh tên trường
+});
 
 export default User;
