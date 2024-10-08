@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import loadable from '@loadable/component'; // Thêm dòng này
+import loadable from '@loadable/component'; 
 import reactLogo from './assets/react.svg';
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
