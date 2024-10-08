@@ -1,19 +1,19 @@
 import { Sequelize, DataTypes } from 'sequelize';
-import sequelize from '../database.js'
+import sequelize from '../database.js';
 
-const conversation = sequelize.define('Conversation',{
-    id:{
+const Conversation = sequelize.define('Conversation', {
+    id: {
         type: DataTypes.STRING,
-        allowNull: false,
         primaryKey: true,
+        allowNull: false,
     },
-    member:{
-        type: DataTypes.JSON,
-        allowNull: true,
+    participants: {
+        type: DataTypes.JSON, // Có thể lưu danh sách người tham gia
+        allowNull: false,
     },
-
-},{
+}, {
     timestamps: true,
-})
+});
 
-export default conversation;
+// Xuất mô hình Conversation
+export default Conversation; 
